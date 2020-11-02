@@ -39,7 +39,7 @@ def main():
 	)
 	arg_parser.add_argument('--path', type=str, required=True, nargs='+', help="The path containing the transcription files. Supports glob pattern matching.")
 	arg_parser.add_argument('--results-dir', type=str, required=False, default="./results", help="The directory where the results will be written. Defaults to the ./results/")
-	arg_parser.add_argument('--csv', action='store_true', required=False, default=False, help="Generate a CSV for each transcription.")
+	arg_parser.add_argument('--csv', action='store_true', required=False, default=False, help="Generate a CSV for each transcription. If no options specified, CSV will be generated.")
 	arg_parser.add_argument('--tsv', action='store_true', required=False, default=False, help="Generate a TSV for each file.")
 	arg_parser.add_argument('--html', action='store_true', required=False, default=False, help="Generate a HTML for each file.")
 
@@ -50,6 +50,11 @@ def main():
 	generate_csv = args["csv"]
 	generate_tsv = args["tsv"]
 	generate_html = args["html"]
+
+	if not (generate_csv or generate_tsv or generate_html):
+		generate_csv = True
+
+	assert os.path.isdir(results_dir)
 
 	process_files(path, results_dir, generate_csv, generate_tsv, generate_html)
 
