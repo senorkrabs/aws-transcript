@@ -1,6 +1,8 @@
 # Transcript.py
 Proof-of-concept python script that can process Amazon Transcribe JSON documents and generate CSV, TSV, and HTML files as output.
 
+For easy of use/setup, Python module dependencies are included in the repo (installed from Windows 10). 
+
 ## Usage
 ```
 $ python transcript.py -h
