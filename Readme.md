@@ -1,5 +1,5 @@
 # Transcript.py
-Python script that can process Amazon Transcribe JSON documents and generate CSV, TSV, and HTML files as output.
+Proof-of-concept python script that can process Amazon Transcribe JSON documents and generate CSV, TSV, and HTML files as output.
 
 ## Usage
 ```
@@ -21,3 +21,6 @@ optional arguments:
 NOTES: The script expects the JSON document to be from AWS Transcribe. It extracts the first transcription from each item. Other alternatives are ignored. Rows are separated by speaker/channel changes. If     
 the transcription doesn't contain speakers/channels then rows are separated by punctuation.
 ```
+
+## Future Enhancements?
+- Move transcription parser into a separate class to make it reusable with other projects
