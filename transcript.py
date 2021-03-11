@@ -117,7 +117,10 @@ def process_plain(data):
 
 	for item in data['results']['items']:
 		content = item['alternatives'][0]['content']
-		confidence = item['alternatives'][0]['confidence']
+		if 'redactions' in item['alternatives'][0]:
+			confidence = item['alternatives'][0]['redactions'][0]['confidence']
+		else:
+			confidence = item['alternatives'][0]['confidence']
 
 		if item.get('type', '') == 'pronunciation':
 			if time is None:
@@ -181,7 +184,10 @@ def process_channel_labels(data):
 
 	for item in data['results']['items']:
 		content = item['alternatives'][0]['content']
-		confidence = item['alternatives'][0]['confidence']
+		if 'redactions' in item['alternatives'][0]:
+			confidence = item['alternatives'][0]['redactions'][0]['confidence']
+		else:
+			confidence = item['alternatives'][0]['confidence']
 		item_channel=channel_item_times.get(item.get('start_time', ''), current_channel)
 		if current_channel is None:
 			current_channel = item_channel
@@ -250,7 +256,10 @@ def process_speaker_labels(data):
 
 	for item in data['results']['items']:
 		content = item['alternatives'][0]['content']
-		confidence = item['alternatives'][0]['confidence']
+		if 'redactions' in item['alternatives'][0]:
+			confidence = item['alternatives'][0]['redactions'][0]['confidence']
+		else:
+			confidence = item['alternatives'][0]['confidence']
 		item_speaker=speaker_start_times.get(item.get('start_time', ''), current_speaker)
 		if current_speaker is None:
 			current_speaker = item_speaker
