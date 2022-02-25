@@ -2,3 +2,4 @@ results/*
 !results/.keep
 .venv
 *__pycache**
+.idea/
