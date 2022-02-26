@@ -1,9 +1,7 @@
 results/*
 !results/.keep
-.venv
-*__pycache**
-.idea/
 
+aws-transcript.exe
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
